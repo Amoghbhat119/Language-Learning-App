@@ -81,7 +81,7 @@ PORT=5000
 Then start the backend server:
 
 ```bash
-npm run server
+npm run dev
 ```
 
 * Default URL: `http://localhost:5000`
