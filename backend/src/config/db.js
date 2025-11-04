@@ -5,6 +5,6 @@ dotenv.config();
 export default async function connectDB() {
   const uri = process.env.MONGODB_URI;
   if (!uri) throw new Error("MONGODB_URI missing in .env");
-  await mongoose.connect(uri, { dbName: "loginui" }); // keep db name consistent
+  await mongoose.connect(uri, { dbName: "loginui" }); 
   console.log("✅ MongoDB connected");
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import { api } from "../lib/api"; 
+import { useNavigate } from "react-router-dom";
+import { api } from "../lib/api";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -9,26 +10,44 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
 
-    if (!email || !password) {
+    const emailNorm = email.trim().toLowerCase();
+    const passwordNorm = password.trim();
+
+    if (!emailNorm || !passwordNorm) {
       setError("Please enter both email and password.");
       return;
     }
 
     try {
       setLoading(true);
-      const { data } = await api.post("/api/auth/login", { email, password });
-     
+      const { data } = await api.post("/api/auth/login", {
+        email: emailNorm,
+        password: passwordNorm,
+      });
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      alert(`Login success! Welcome, ${data.user.name}`);
-      window.location.href = "/"; 
+      // ✅ Navigate to HomePage and show modal there
+      navigate("/", {
+        state: {
+          modal: {
+            type: "login-success",
+            name: data.user?.name || "",
+          },
+        },
+      });
     } catch (err) {
-      const msg = err?.response?.data?.message || "Invalid credentials.";
+      const msg =
+        err?.response?.data?.message ||
+        err?.response?.data?.error ||
+        "Invalid credentials.";
       setError(msg);
     } finally {
       setLoading(false);
@@ -76,8 +95,9 @@ export default function LoginPage() {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowPassword((s) => !s)}
                   className="absolute top-1/2 -translate-y-1/2 right-3 text-gray-500 hover:text-gray-700"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
                   {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </button>

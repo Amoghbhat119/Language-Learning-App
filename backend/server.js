@@ -10,11 +10,11 @@ dotenv.config();
 
 const app = express();
 
-// security + parsing
+
 app.use(helmet());
 app.use(express.json());
 
-// CORS
+
 app.use(
   cors({
     origin: process.env.CLIENT_ORIGIN, // http://localhost:5173
@@ -22,14 +22,14 @@ app.use(
   })
 );
 
-// logs
+
 app.use(morgan(process.env.NODE_ENV === "production" ? "combined" : "dev"));
 
-// routes
+
 app.get("/", (_req, res) => res.send("API running"));
 app.use("/api/auth", authRoutes);
 
-// start
+
 const PORT = process.env.PORT || 5000;
 
 connectDB()
