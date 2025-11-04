@@ -1,6 +1,6 @@
-# English Learning App
+# 🌿 English Learning App
 
-A simple **MERN-based** web application featuring a **Login page**, **Signup page**, and **Homepage**  for English learning.
+A simple **MERN-based** web application that allows users to **sign up**, **log in**, and explore a structured English learning homepage.
 
 ---
 
@@ -8,68 +8,89 @@ A simple **MERN-based** web application featuring a **Login page**, **Signup pag
 
 ### 🏠 Homepage
 
-* Displays the app introduction, learning paths, and key highlights.
-
+* Displays introduction, learning paths, and app features.
+* Includes **Login** and **Sign Up** buttons.
+* Shows a popup after successful login or signup.
 
 ### 🔐 Login Page
 
-* Allows existing users to log in using **email** and **password**.
-* Performs input validation and displays appropriate error messages.
+* Users can log in with **email and password**.
+* Validates input and handles incorrect credentials.
 * Redirects to the homepage upon successful login.
 
 ### 📝 Signup Page
 
-* Enables new users to register by entering **name, email, and password**.
-* Validates all fields and checks for password confirmation.
-* Redirects to the homepage with a success popup after registration.
+* Allows new users to register with **name, email, and password**.
+* Performs form validation and password confirmation.
+* Redirects to the homepage with a success popup after signup.
 
-🗄️ **All user details are securely stored in the MongoDB database**, including:
-
-* Name
-* Email
-* Password (encrypted using bcrypt)
+🗄️ **All user data (name, email, encrypted password)** is securely stored in **MongoDB**.
 
 ---
 
 ## ⚙️ Tech Stack
 
-* **Frontend:** React.js (Vite) + Tailwind CSS
-* **Backend:** Node.js + Express.js
-* **Database:** MongoDB (Mongoose)
-* **Authentication:** JWT (JSON Web Token)
+| Layer          | Technology                     |
+| -------------- | ------------------------------ |
+| Frontend       | React.js (Vite) + Tailwind CSS |
+| Backend        | Node.js + Express.js           |
+| Database       | MongoDB (Mongoose)             |
+| Authentication | JWT (JSON Web Token)           |
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run the Project
 
-### 1️⃣ Clone the repository
+### 🖥️ 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-username/english-learning-app.git
 cd english-learning-app
 ```
 
-### 2️⃣ Install dependencies
+---
+
+### 🌐 2. Frontend Setup
 
 ```bash
+cd frontend
 npm install
-```
-
-### 3️⃣ Start the frontend
-
-```bash
 npm run dev
 ```
 
-### 4️⃣ Start the backend (in a separate terminal)
+* Runs the app in development mode.
+* Default URL: `http://localhost:5173`
+
+---
+
+### ⚙️ 3. Backend Setup
 
 ```bash
 cd backend
 npm install
+```
+
+Create a `.env` file inside the `backend` folder and add:
+
+```
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+```
+
+Then start the backend server:
+
+```bash
 npm run server
 ```
 
-### 5️⃣ Open in browser
+* Default URL: `http://localhost:5000`
+
+---
+
+### 🌍 4. Access the App
+
+Open your browser and navigate to:
 
 ```
 http://localhost:5173
