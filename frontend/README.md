@@ -1,38 +1,84 @@
-SignUp Login UI
+# 🌿 English Learning App
 
-Below are the screenshots of the output:
+A simple **MERN-based** web application featuring a **Login page**, **Signup page**, and **Homepage**  for English learning.
 
-### 1. Signup Page
-This screen allows the user to enter full name, email, password and confirm password.  
-If both passwords do not match, an alert is shown.  
-After successful signup, it redirects back to the login page.
-![Signup Screenshot](SignupPage.png)
+---
 
-### 2. Login Page
-This screen shows the login form where the user can enter email and password.  
-It also has a show/hide password option and a link to go to the signup page.
-![Login Screenshot](LoginPage.png)
+## 📋 Overview
 
-### 3. Login Alert Message
-This screen shows the alert message when user enters correct email and password and click login button.  
-![Login Alert Screenshot](LoginAlert.png)
+### 🏠 Homepage
+
+* Displays the app introduction, learning paths, and key highlights.
 
 
-## How to Run
+### 🔐 Login Page
 
-1. Clone the repository  
-   git clone https://github.com/Amoghbhat119/SignUP-Login-UI.git
+* Allows existing users to log in using **email** and **password**.
+* Performs input validation and displays appropriate error messages.
+* Redirects to the homepage upon successful login.
 
-2. Navigate into the folder  
-   cd LoginUI
+### 📝 Signup Page
 
-3. Install dependencies  
-   npm install
+* Enables new users to register by entering **name, email, and password**.
+* Validates all fields and checks for password confirmation.
+* Redirects to the homepage with a success popup after registration.
 
-4. Start the project  
-   npm run dev
+🗄️ **All user details are securely stored in the MongoDB database**, including:
 
-Then open the URL shown in the terminal (usually http://localhost:5173)
+* Name
+* Email
+* Password (encrypted using bcrypt)
 
+---
 
+## ⚙️ Tech Stack
 
+* **Frontend:** React.js (Vite) + Tailwind CSS
+* **Backend:** Node.js + Express.js
+* **Database:** MongoDB (Mongoose)
+* **Authentication:** JWT (JSON Web Token)
+
+---
+
+## 🚀 How to Run
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/english-learning-app.git
+cd english-learning-app
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Start the frontend
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Start the backend (in a separate terminal)
+
+```bash
+cd backend
+npm install
+npm run server
+```
+
+### 5️⃣ Open in browser
+
+```
+http://localhost:5173
+```
+
+---
+
+## 👨‍💻 Developer
+
+**Amogh Venkatraman Bhat**
+GitHub: [Amoghbhat119](https://github.com/Amoghbhat119)
+LinkedIn: [Amogh Bhat](https://www.linkedin.com/in/amogh-bhat-509761343)
