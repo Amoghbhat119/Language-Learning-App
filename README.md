@@ -1,4 +1,4 @@
-# 🌿 English Learning App
+# English Learning App
 
 A simple **MERN-based** web application featuring a **Login page**, **Signup page**, and **Homepage**  for English learning.
 
